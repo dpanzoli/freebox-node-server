@@ -4,7 +4,7 @@ const app = express();
 
 const Datastore = require('nedb');
 
-var db = new Datastore({filename:'/home/pi/database.db', autoload:true});
+var db = new Datastore({filename:'./database.db', autoload:true});
 
 // Add headers
 app.use(function (req, res, next) {
@@ -29,6 +29,8 @@ app.get('/', function(req, res) {
 			timestamp: new Date()
 			
 		}, function(err, newDoc) {
+			console.log(err); //null when nothing wrong
+			console.log(newDoc);
 			res.send(newDoc);
 		}
 	);
