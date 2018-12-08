@@ -1,0 +1,11 @@
+[Unit]
+Description=Freebox-Node-Server
+After=network.target
+
+[Service]
+User=pi
+ExecStart=/usr/bin/node /home/pi/server.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
